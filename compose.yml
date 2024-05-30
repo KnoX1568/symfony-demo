@@ -1,0 +1,21 @@
+version: '3.0'
+
+services:
+  php-apache:
+    depends_on:
+      - mysql
+    build:
+      context: .
+      dockerfile: docker-config/Dockerfile
+    ports:
+      - '80:80'
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/node_modules/
+  mysql:
+    image: mysql:8.0-debian
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: top_secret
+      MYSQL_DATABASE: demo_local
