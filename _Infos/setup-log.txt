@@ -1,1 +1,3 @@
 symfony new symfony-demo --version="7.0.*" --webapp
+---
+symfony composer require symfony/apache-pack
